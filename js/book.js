@@ -38,7 +38,7 @@ const getBooks = (books) => {
 
     } else {
         books.forEach(book => {
-            console.log(book);
+            // console.log(book);
             errorMessage.textContent = '';
             const createDiv = document.createElement('div');
             createDiv.classList.add('book-card');
