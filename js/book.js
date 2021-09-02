@@ -20,32 +20,26 @@ const getBooksData = (inputBookValue) => {
     const booksUrl = `https://openlibrary.org/search.json?q=${inputBookValue}`;
     fetch(booksUrl)
         .then(res => res.json())
-        .then(data => getBooks(data.docs))
-    // .catch(error => {
-    //     const errorMessage = document.getElementById('error-message');
-    //     // errorMessage.classList.remove('d-none');
-    //     alert('this')
-    //     setNewSpinner('none');
-    // // });
-    // .catch(error => {
-    //         console.log(error.message);
-    //         document.getElementById('error-message').classList.remove('d-none');
-    //         setNewSpinner('none');
-    //     })
+        .then(data => getBooks(data.docs));
+
 };
 
 
 const getBooks = (books) => {
     console.log(books);
+
     const booksDisplay = document.getElementById('books-display');
     booksDisplay.textContent = '';
+    const errorMessage = document.getElementById('error-message');
+
     if (books.length === 0) {
-        const errorMessage = document.getElementById('error-message');
         errorMessage.classList.remove('d-none');
         setNewSpinner('none');
+
     } else {
         books.forEach(book => {
             console.log(book);
+            errorMessage.textContent = '';
             const createDiv = document.createElement('div');
             createDiv.classList.add('book-card');
             createDiv.innerHTML = `
@@ -58,9 +52,15 @@ const getBooks = (books) => {
             booksDisplay.appendChild(createDiv);
             const totalFound = document.getElementById('total-found');
             totalFound.innerHTML = `Total Found Result: ${books.length}`;
+            document.getElementById('error-message').classList.add('d-block');
+            setNewSpinner('none');
+            setDisplayResult('block');
+
+
         });
-        setNewSpinner('none');
-        setDisplayResult('block');
+
     }
- 
+
+
+
 };
