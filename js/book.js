@@ -1,13 +1,17 @@
-const setSpinner = (displaySpinner) =>{
+const setNewSpinner = (displaySpinner) =>{
     document.getElementById('loading-spinner').style.display = displaySpinner;
-}
+};
+const setDisplayResult = (displaySpinner) =>{
+    document.getElementById('disply-result').style.display = displaySpinner;
+};
 
 const getBookName = () => {
     const inputBook = document.getElementById('input-books');
     const inputBookValue = inputBook.value;
     inputBook.value = '';
     getBooksData(inputBookValue)
-    setSpinner('block');
+    setNewSpinner('block');
+    setDisplayResult('none');
 };
 
 const getBooksData = (inputBookValue) => {
@@ -43,7 +47,8 @@ const getBooks = (books) => {
     
     const totalFound = document.getElementById('total-found');
     totalFound.innerHTML = `Total Found Result: ${books.length}`;
-    setSpinner('none');
+    setNewSpinner('none');
+    setDisplayResult('block');
 
 
 };
