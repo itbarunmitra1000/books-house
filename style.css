@@ -2,20 +2,24 @@ body {
     background-image: linear-gradient(to right, #fff6f6, #ffffff);
 
 }
+/* spinner */
 #loading-spinner{
     display: none;
 }
 
+/* books display  */
 #books-display{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 25px;
     
 }
+/* card ::shadow */
 .book-card{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
 }
+/* img size  */
 .book-img{
     width: 320px;
     height: 250px;
