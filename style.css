@@ -1,8 +1,24 @@
 body {
-    background: url(images/bg-image.jpg) no-repeat;
-    background-size: cover;
-    height: 100vh;
+    background-image: linear-gradient(to right, #fff6f6, #ffffff);
+
 }
-#spinner{
+#loading-spinner{
     display: none;
+}
+
+#books-display{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 25px;
+    
+}
+.book-card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+.book-img{
+    width: 320px;
+    height: 250px;
+    border-radius: 10px;
+
 }
